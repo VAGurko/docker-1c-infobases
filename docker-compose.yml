@@ -1,10 +1,13 @@
-version: '3.4'
 services:
   apache-1c:
     build: .
     restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
     ports:
       - 80:80
     extra_hosts:
       - "Serv1C:192.168.1.15"
-
